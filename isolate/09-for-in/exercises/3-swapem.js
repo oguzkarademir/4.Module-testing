@@ -9,13 +9,13 @@ const assert = chai.assert;
  */
 const swapem = (obj) => {
 
-  let swapped = _;
-  for (const _ in _) {
-    const value = _;
-    if (_) {
-      _[_] = _;
+  let swapped = {};
+  for (const key in obj) {
+    const value = obj[key];
+    if (typeof value === 'string') {
+      swapped[value] = key;
     } else {
-      _[_] = _;
+      swapped[key] = value;
     }
 
   }

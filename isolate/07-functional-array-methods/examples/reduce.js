@@ -6,9 +6,7 @@
  * @param {string} next
  * @returns {string} "acc, next"
  */
-const commaSpace = (acc, next) => {
-  return `${acc}, ${next}`;
-};
+const commaSpace = (acc, next) => `${acc}, ${next}`;
 
 
 // reduce requires an initial value if the array is empty

@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = chai.assert;
 
 /**
@@ -12,8 +10,10 @@ const filterOutStrings = (arr) => {
   if (!Array.isArray(arr)) { throw new TypeError('arr'); }
 
   const noStrings = [];
-  for (const _ of _) {
-
+  for (let value of arr) {
+    if (typeof value !== 'string') {
+      noStrings.push(value);
+    }
   }
 
   return noStrings;

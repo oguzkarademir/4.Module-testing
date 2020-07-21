@@ -1,33 +1,31 @@
-'use strict';
-
 const expect = chai.expect;
 
 describe('ES6 object literal shorthand', () => {
   it('types of tasty treats', () => {
     const wet = 'soup';
     const dry = 'bread';
-    const obj = { _, _ };
-    expect(obj.dry).to.eql(_);
-    expect(obj._).to.eql('soup');
+    const obj = { wet, dry };
+    expect(obj.dry).to.eql('bread');
+    expect(obj.wet).to.eql('soup');
   });
   it('ES5, ES6', () => {
     const tall = 'tree';
     const obj = {
-      _,
-      _: 'bush'
+      tall,
+      short: 'bush'
     };
-    expect(obj.short).to.eql(_);
-    expect(_).to.eql('tree');
+    expect(obj.short).to.eql('bush');
+    expect(obj.tall).to.eql('tree');
   });
   it('a menagerie', () => {
-    const swimming = _;
+    const swimming = 'mackerel';
     const obj = {
-      flying: _,
-      _,
-      _: 'cheetah'
+      flying: 'crane',
+      swimming,
+      running: 'cheetah'
     };
-    expect(_).to.eql('crane');
-    expect(obj.running).to.eql(_);
-    expect(_).to.eql('mackerel')
+    expect(obj.flying).to.eql('crane');
+    expect(obj.running).to.eql('cheetah');
+    expect(obj.swimming).to.eql('mackerel')
   });
 });

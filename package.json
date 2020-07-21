@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/HackYourFutureBelgium/testing/issues"
   },
-  "homepage": "https://github.com/HackYourFutureBelgium/testing#readme"
+  "homepage": "https://github.com/HackYourFutureBelgium/testing#readme",
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
 }

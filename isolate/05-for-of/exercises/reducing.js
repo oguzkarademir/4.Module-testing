@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = chai.assert;
 
 /**
@@ -11,9 +9,10 @@ const assert = chai.assert;
 const concatenateAsStrings = (arr) => {
   if (!Array.isArray(arr)) { throw new TypeError('arr'); }
 
-  let concatenated = _;
-  for (const _ of _) {
-
+  let concatenated = '';
+  for (let value of arr) {
+    const str = String(value);
+    concatenated += str;
   }
 
   return concatenated;
@@ -49,6 +48,11 @@ describe('concatenateAsStrings casts values to "string" and joins them together'
     });
   });
   describe('it uses the argument array correctly', () => {
+    it('returns a new array', () => {
+      const arg = [];
+      const returned = concatenateAsStrings([]);
+      assert.notStrictEqual(returned, arg);
+    });
     it('does not modify the argument', () => {
       const arg = ['a', 1, true, null, undefined];
       concatenateAsStrings(arg);

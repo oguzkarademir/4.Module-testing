@@ -5,7 +5,7 @@
   higher order functions will help you write more reusable code
 */
 
-const deepCompare = (actual, expect) => actual === expect || Object.is(actual, expect) || (Object(actual) === actual && Object(expect) === expect) && (Array.isArray(actual) && Array.isArray(expect) && actual.length === expect.length && expect.every((expect, index) => deepCompare(actual[index], expect)) || Reflect.ownKeys(actual).length === Reflect.ownKeys(expect).length && Reflect.ownKeys(expect).every((key) => deepCompare(actual[key], expect[key])));
+const deepCompare = (actual, expect) => actual === expect || Object.is(actual, expect) || (Object(actual) === actual && Object(expect) === expect) && (Array.isArray(actual) && Array.isArray(expect) && actual.length === expect.length && expect.every((expect, index) => deepCompare(actual[index], expect)));
 
 /**
  * executes the callback with each item of the array
@@ -27,9 +27,7 @@ const map = (arr, callback) => {
 const argArray = [3, true, 'hi', '', 0];
 
 // Callback to cast to Number
-const castToNumber = (val) => {
-  return Number(val);
-};
+const castToNumber = (val) => Number(val);
 
 const _1_expect = [3, 1, NaN, 0, 0];
 const _1_actual = map(argArray, castToNumber);
@@ -37,9 +35,7 @@ console.assert(deepCompare(_1_actual, _1_expect), 'Test 1: map to type number');
 
 
 // Callback that converts to the type
-const typeOfValue = (val) => {
-  return typeof val;
-};
+const typeOfValue = (val) => typeof val;
 
 const _2_expect = ['number', 'boolean', 'string', 'string', 'number']
 const _2_actual = map(argArray, typeOfValue);

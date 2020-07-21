@@ -10,9 +10,7 @@
  * @param {any} entry
  * @returns {boolean}
  */
-const isFalsy = (entry) => {
-  return !Boolean(entry);
-};
+const isFalsy = (entry) => !Boolean(entry);
 
 // test isFalsy
 const isFalsyTest1 = isFalsy(0) === true;

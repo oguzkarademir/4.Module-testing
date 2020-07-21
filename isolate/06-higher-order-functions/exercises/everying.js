@@ -4,24 +4,20 @@
 
 /**
  * checks if a value is falsy
- *  returns true if the value is falsy
- *  returns false if it's truthy
  * @param {any} val
  * @returns {boolean}
  */
-const isFalsy = (_) => {
-
-};
+const isFalsy = (param) => param === [] || !Boolean(param);
 
 
 // this works!  no need to change it
 const every = (arr, callback) => {
-  let allAreFalsy = true;
+  let allAreTrue = true;
   for (let entry of arr) {
-    const isFalsyValue = callback(entry);
-    allAreFalsy = isFalsyValue && allAreFalsy;
+    const isTrue = callback(entry);
+    allAreTrue = isTrue && allAreTrue;
   }
-  return allAreFalsy;
+  return allAreTrue;
 };
 
 

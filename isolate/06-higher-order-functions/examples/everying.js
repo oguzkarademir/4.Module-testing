@@ -5,7 +5,7 @@
   higher order functions will help you write more reusable code
 */
 
-const deepCompare = (actual, expect) => actual === expect || Object.is(actual, expect) || (Object(actual) === actual && Object(expect) === expect) && (Array.isArray(actual) && Array.isArray(expect) && actual.length === expect.length && expect.every((expect, index) => deepCompare(actual[index], expect)) || Reflect.ownKeys(actual).length === Reflect.ownKeys(expect).length && Reflect.ownKeys(expect).every((key) => deepCompare(actual[key], expect[key])));
+const deepCompare = (actual, expect) => actual === expect || Object.is(actual, expect) || (Object(actual) === actual && Object(expect) === expect) && (Array.isArray(actual) && Array.isArray(expect) && actual.length === expect.length && expect.every((expect, index) => deepCompare(actual[index], expect)));
 
 /**
  * calls the callback with each item in the array
@@ -27,9 +27,7 @@ const every = (arr, callback) => {
 const argArray = [3, 2, null, 8, 'hi'];
 
 // are all values numbers?
-const isANumber = (val) => {
-  return typeof val === 'number';
-};
+const isANumber = (val) => typeof val === 'number';
 
 const _1_expect = false;
 const _1_actual = every(argArray, isANumber);
@@ -37,9 +35,7 @@ console.assert(deepCompare(_1_actual, _1_expect), 'Test 1');
 
 
 // are all values not boolean?
-const isNotBoolean = (val) => {
-  return typeof val !== 'boolean';
-};
+const isNotBoolean = (val) => typeof val !== 'boolean';
 
 const _2_expect = true;
 const _2_actual = every(argArray, isNotBoolean);

@@ -11,17 +11,13 @@ const assert = chai.assert;
  */
 const sentenceIt = (arr) => {
   // these work, you need to use them with the right array methods
-  const isWord = (entry) => {
-    return /^[a-zA-Z]+$/.test(entry);
-  };
-  const twoWords = (acc, next) => {
-    return `${acc} ${next}`;
-  };
+  const isWord = (entry) => /^[a-zA-Z]+$/.test(entry);
+  const twoWords = (acc, next) => `${acc} ${next}`;
 
   // fill in the array method to use the logic above
   const sentenceIt = arr
-    ._(_)
-    ._(_, _);
+    .filter(isWord)
+    .reduce(twoWords, '');
 
   return sentenceIt;
 };

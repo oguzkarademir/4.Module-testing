@@ -16,7 +16,7 @@
   </style>
 
   <script id='script-variables'>
-    const userEntries = {
+    let userEntries = {
       wood: 'oak',
       television: '>:)'
     };
@@ -25,79 +25,79 @@
   <script id='handlers'>
     'use strict';
 
-    const displayEntriesHandler = (message = '_', object = _) => {
+    const displayEntriesHandler = (message = 'all entries', object = userEntries) => {
       debugger;
       const starter = message + ':';
-      const stringToDisplay = Object._(object)
-        .reduce((message, nextEntry) => {
-          const nextLine = nextEntry[_] + ': ' + nextEntry[_];
-          return _;
-        }, starter);
+      let stringToDisplay = starter;
+      for (const key in object) {
+        const nextLine = ` ${key}: ${object[key]}`;
+        stringToDisplay += '\n' + nextLine;
+      }
       alert(stringToDisplay);
     };
 
     const resetHandler = () => {
       debugger;
-      userEntries = _;
+      userEntries = {};
       displayEntriesHandler();
     };
 
     const writeEntryHandler = () => {
       debugger;
-      const key = prompt('');
-      if (_) { return; }
+      const key = prompt('enter a key:');
+      if (key === null) { return; }
 
-      const newValue = prompt('');
-      if (_) { return; }
+      const newValue = prompt('enter a value:');
+      if (newValue === null) { return; }
 
-      _[_] = _;
+      userEntries[key] = newValue;
 
       displayEntriesHandler();
     };
 
     const deleteEntryHandler = () => {
       debugger;
-      const key = prompt('');
+      const key = prompt('enter a key to find:');
       if (key === null) { return; }
 
-      const keyExists = Object._(userEntries)
+      const keyExists = Object.keys(userEntries)
         .includes(key); // does the array include the exact string?
 
       if (keyExists) {
-        delete _;
-        _();
+        delete userEntries[key];
+        displayEntriesHandler();
       } else {
-        alert(``);
+        alert(`${key} does not exist`);
       }
     };
 
     const findKeyHandler = () => {
       debugger;
-      const key = prompt('');
+      const key = prompt('enter a key to find:');
       if (key === null) { return; }
 
-      const keyExists = Object._(_)
-        ._(key); // does the array include the exact string?
+      const keyExists = Object.keys(userEntries)
+        .includes(key); // does the array include the exact string?
 
-      if (_) {
-        const foundEntry = ``;
+      if (keyExists) {
+        const foundEntry = `${key}: ${userEntries[key]}`;
         alert(foundEntry);
       } else {
-        alert(``);
+        alert(`entry "${key}" does not exist`);
       }
     };
 
     const searchValuesHandler = () => {
       debugger;
-      const query = prompt('');
+      const query = prompt('enter a search query');
       if (query === null) { return; }
 
-      const matchingEntries = Object._(_)
-        ._((entry) => {
-          return entry[1]._(query); // does the string include this substring?
+      const matchingEntries = Object.entries(userEntries)
+        .filter((entry) => {
+          return entry[1].includes(query); // does the string include this substring?
         });
-      const searchResults = Object._(_);
-      displayEntriesHandler(``, _);
+      const searchResults = Object.fromEntries(matchingEntries);
+      displayEntriesHandler(`search results for ${query}`, searchResults); 
     };
   </script>
 </head>

@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = chai.assert;
 
 /**
@@ -11,11 +9,10 @@ const assert = chai.assert;
 const containsNoNumbers = (arr) => {
   if (!Array.isArray(arr)) { throw new TypeError('arr'); }
 
-  let noNumbers = _;
-  for (const _ of _) {
-
+  let noNumbers = true;
+  for (let value of arr) {
+    noNumbers = noNumbers && (typeof value !== 'number');
   }
-
   return noNumbers;
 };
 
@@ -73,6 +70,11 @@ describe('containsNoNumbers checks if an array contains no numbers', () => {
   });
 
   describe('it uses the argument array correctly', () => {
+    it('returns a new array', () => {
+      const arg = [];
+      const returned = containsNoNumbers([]);
+      assert.notStrictEqual(returned, arg);
+    });
     it('does not modify the argument', () => {
       const arg = ['a', 1, true, null, undefined];
       containsNoNumbers(arg);

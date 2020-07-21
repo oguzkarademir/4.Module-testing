@@ -1,6 +1,6 @@
 'use strict';
 
-const deepCompare = (actual, expect) => actual === expect || Object.is(actual, expect) || (Object(actual) === actual && Object(expect) === expect) && (Array.isArray(actual) && Array.isArray(expect) && actual.length === expect.length && expect.every((expect, index) => deepCompare(actual[index], expect)) || Reflect.ownKeys(actual).length === Reflect.ownKeys(expect).length && Reflect.ownKeys(expect).every((key) => deepCompare(actual[key], expect[key])));
+const deepCompare = (actual, expect) => actual === expect || Object.is(actual, expect) || (Object(actual) === actual && Object(expect) === expect) && (Array.isArray(actual) && Array.isArray(expect) && actual.length === expect.length && expect.every((expect, index) => deepCompare(actual[index], expect)));
 
 // write an isEnthusiastic function to pass the tests
 
@@ -9,9 +9,7 @@ const deepCompare = (actual, expect) => actual === expect || Object.is(actual, e
  * @param {string} str - string to check for "!"
  * @returns {boolean} if str contains "!" or not
  */
-const isEnthusiastic = (_) => {
-  return _;
-};
+const isEnthusiastic = (param) => Boolean(param.includes('!'));
 
 
 // this works!  no need to change it

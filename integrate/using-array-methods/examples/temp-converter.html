@@ -25,9 +25,7 @@
 
     const displayTemperatureHandler = () => {
       debugger;
-      const joinStrings = (acc, next) => {
-        return `${acc}\n${next}`
-      };
+      const joinStrings = (acc, next) => `${acc}\n${next}`;
       const allTemperatures = temperatures
         .reduce(joinStrings, `${degrees}:`);
       alert(allTemperatures);
@@ -50,15 +48,11 @@
     const convertTemperaturesHandler = () => {
       debugger;
       if (degrees === 'fahrenheit') {
-        const toCelsius = (tempF) => {
-          return (5 / 9) * (tempF - 32)
-        };
+        const toCelsius = (tempF) => (5 / 9) * (tempF - 32);
         temperatures = temperatures.map(toCelsius);
         degrees = 'celsius';
       } else {
-        const toFahrenheit = (tempC) => {
-          return tempC * 9 / 5 + 32
-        };
+        const toFahrenheit = (tempC) => tempC * 9 / 5 + 32;
         temperatures = temperatures.map(toFahrenheit);
         degrees = 'fahrenheit';
       }

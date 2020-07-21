@@ -8,9 +8,7 @@ const assert = chai.assert;
  * @param {number} num - the number
  * @returns {boolean} is the number even?
  */
-const isEven = (num) => {
-  return _;
-};
+const isEven = (num) => Boolean(num % 2 === 0);
 
 
 describe('isEven: determines if a number is even or not', () => {

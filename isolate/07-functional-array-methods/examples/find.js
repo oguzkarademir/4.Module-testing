@@ -5,9 +5,7 @@
  * @param {string} str - the string to check for enthusiasm
  * @returns {boolean}
  */
-const isCurious = (str) => {
-  return str.includes('?');
-};
+const isCurious = (str) => str.includes('?');
 
 
 // returns undefined if the array is empty

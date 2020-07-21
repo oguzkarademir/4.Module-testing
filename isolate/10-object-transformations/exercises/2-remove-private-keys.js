@@ -22,12 +22,12 @@ const assert = chai.assert;
  */
 const removePrivateKeys = (obj) => {
 
-  const secureObject = Object._(obj)
+  const secureObject = Object.keys(obj)
     .filter((key) => {
-      return _;
+      return key.split('')[0] !== '_';
     })
     .reduce((newObj, nextKey) => {
-      newObj[_] = obj[_];
+      newObj[nextKey] = obj[nextKey];
       return newObj;
     }, {});
 

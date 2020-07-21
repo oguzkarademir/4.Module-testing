@@ -7,9 +7,7 @@
  * @param {string} str - the string to check for enthusiasm
  * @returns {boolean}
  */
-const isCurious = (_) => {
-  return _;
-};
+const isCurious = (param) => Boolean(param.includes('?'));
 
 // this works! no need to change it
 const find = (arr, callback) => {

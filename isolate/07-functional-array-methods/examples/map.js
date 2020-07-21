@@ -1,15 +1,13 @@
 'use strict';
 
-const deepCompare = (actual, expect) => actual === expect || Object.is(actual, expect) || (Object(actual) === actual && Object(expect) === expect) && (Array.isArray(actual) && Array.isArray(expect) && actual.length === expect.length && expect.every((expect, index) => deepCompare(actual[index], expect)) || Reflect.ownKeys(actual).length === Reflect.ownKeys(expect).length && Reflect.ownKeys(expect).every((key) => deepCompare(actual[key], expect[key])));
+const deepCompare = (actual, expect) => actual === expect || Object.is(actual, expect) || (Object(actual) === actual && Object(expect) === expect) && (Array.isArray(actual) && Array.isArray(expect) && actual.length === expect.length && expect.every((expect, index) => deepCompare(actual[index], expect)));
 
 /**
  * converts a value to it's truthiness
  * @param {any} val - the value to convert
  * @returns {string} "truey" or "falsey"
  */
-const truthiness = (val) => {
-  return `${Boolean(val)}y`;
-};
+const truthiness = (val) => `${Boolean(val)}y`;
 
 
 // returns an empty array for an empty array
